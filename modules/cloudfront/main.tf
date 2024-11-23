@@ -6,10 +6,8 @@ resource "aws_cloudfront_origin_access_control" "myCV_oac_01" {
   signing_protocol                   = "sigv4"
 }
 
-# CloudFront Distribution
 resource "aws_cloudfront_distribution" "myCV_distribution_01" {
   origin {
-    # Use the bucket's regional domain name
     domain_name = var.bucket_name_regional_domain
     origin_id   = "S3-${var.bucket_name}"
 
@@ -31,6 +29,8 @@ resource "aws_cloudfront_distribution" "myCV_distribution_01" {
     }
   }
 
+  aliases = [var.cloudfront_alternate_domain]
+
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
@@ -42,9 +42,12 @@ resource "aws_cloudfront_distribution" "myCV_distribution_01" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = var.acm_certificate_arn # Use certificate from input
+    ssl_support_method        = "sni-only"
+    minimum_protocol_version  = "TLSv1.2_2021"
   }
 }
+
 
 # Bucket Policy for CloudFront Access
 resource "aws_s3_bucket_policy" "myCV_bucket_policy_01" {

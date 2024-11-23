@@ -22,3 +22,14 @@ variable "bucket_name_regional_domain" {
   description = "The regional domain name of the S3 bucket"
   type        = string
 }
+
+variable "cloudfront_alternate_domain" {
+  description = "Alternate domain name (CNAME) for the CloudFront distribution"
+  type        = string
+}
+
+variable "acm_certificate_arn" {
+  description = "ARN of the ACM Certificate for the CloudFront distribution"
+  type        = string
+  default     = ""
+}
