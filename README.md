@@ -41,7 +41,7 @@ static-website-terraform/
 ├── variables.tf                 # Global input variables
 ├── provider.tf                  # Provider configuration (AWS)
 └── README.md                    # Project documentation
-
+```
 
 # Required Variables
 
