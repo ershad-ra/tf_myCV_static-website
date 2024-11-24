@@ -3,18 +3,9 @@ output "bucket_name" {
 }
 
 output "cloudfront_distribution_domain" {
-  value = module.cloudfront_resources.cloudfront_domain_name
+  value = module.cloudfront_resources.cloudfront_distribution_domain
 }
 
-output "dns_zone_id" {
-  value = module.dns_resources.dns_zone_id
-}
-
-output "domain_name" {
-  value = module.dns_resources.domain_name
-}
-
-output "acm_certificate_arn" {
-  description = "ARN of the ACM Certificate"
-  value       = module.dns_resources.acm_certificate_arn
+output "myCV_is_reachable_at" {
+  value = var.cloudfront_alternate_domain
 }
