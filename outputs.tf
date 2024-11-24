@@ -7,5 +7,5 @@ output "cloudfront_distribution_domain" {
 }
 
 output "myCV_is_reachable_at" {
-  value = var.cloudfront_alternate_domain
+  value = var.myCV_domain_name
 }

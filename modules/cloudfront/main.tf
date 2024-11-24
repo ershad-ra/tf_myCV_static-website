@@ -6,6 +6,7 @@ resource "aws_cloudfront_origin_access_control" "myCV_oac_01" {
   signing_protocol                   = "sigv4"
 }
 
+# Create the CloudFront distribution
 resource "aws_cloudfront_distribution" "myCV_distribution_01" {
   origin {
     domain_name = var.bucket_name_regional_domain
@@ -29,7 +30,10 @@ resource "aws_cloudfront_distribution" "myCV_distribution_01" {
     }
   }
 
-  aliases = [var.cloudfront_alternate_domain]
+  aliases = [
+    var.cloudfront_alternate_domain,  # cloudnex.fr
+    "*.${var.cloudfront_alternate_domain}"  # *.cloudnex.fr
+  ]
 
   enabled             = true
   is_ipv6_enabled     = true
