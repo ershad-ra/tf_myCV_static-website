@@ -43,29 +43,29 @@ static-website-terraform/
 └── README.md                    # Project documentation
 ```
 
-# Required Variables
+## Required Variables
 
-# AWS region to deploy resources in (default: us-east-1)
+### AWS region to deploy resources in (default: us-east-1)
 variable "region" {
   description = "AWS region to deploy resources in"
   default     = "us-east-1"
 }
 
-# Alternate domain name (CNAME) for the CloudFront distribution, e.g., "your_domain.com"
+### Alternate domain name (CNAME) for the CloudFront distribution, e.g., "your_domain.com"
 variable "myCV_domain_name" {
   description = "Alternate domain name (CNAME) for the CloudFront distribution"
   type        = string
   default     = "your_domain.com"
 }
 
-# ARN of the ACM Certificate to enable HTTPS for the CloudFront distribution
+### ARN of the ACM Certificate to enable HTTPS for the CloudFront distribution
 variable "acm_certificate_arn" {
   description = "ARN of the ACM Certificate for the CloudFront distribution"
   type        = string
   default     = "arn:aws_of_your_certificate"
 }
 
-# ID of the manually created Route 53 hosted zone, required for DNS configuration
+### ID of the manually created Route 53 hosted zone, required for DNS configuration
 variable "route53_hosted_zone_id" {
   description = "ID of the manually created Route 53 hosted zone"
   type        = string
