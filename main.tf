@@ -19,5 +19,5 @@ module "cloudfront_resources" {
   bucket_name_regional_domain = module.bucket_resources.bucket_name_regional_domain
   random_suffix              = module.bucket_resources.random_suffix
   cloudfront_alternate_domain = var.myCV_domain_name
-  acm_certificate_arn         = var.acm_certificate_arn
+  acm_certificate_arn         = module.dns_resources.certificate_arn
 }

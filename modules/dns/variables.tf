@@ -17,3 +17,14 @@ variable "domain_name" {
   description = "Alternate domain (CNAME) for the CloudFront distribution"
   type        = string
 }
+
+variable "registrar_name_servers" {
+  description = "Name servers assigned by the registrar for the domain"
+  type        = list(string)
+  default     = [
+    "ns-924.awsdns-51.net.",
+    "ns-160.awsdns-20.com.",
+    "ns-1563.awsdns-03.co.uk.",
+    "ns-1034.awsdns-01.org."
+  ]
+}
